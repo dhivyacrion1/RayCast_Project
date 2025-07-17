@@ -1,44 +1,57 @@
-using UnityEngine;
-using TMPro;
+//using UnityEngine;
 
-public class ObjectClickInfo : MonoBehaviour
-{
-    public Camera cam;
-    public TMP_Text objectNameText;
+//public class ObjectClickInfo : MonoBehaviour
+//{
+//   
+//    public Camera cam;
+//    public InfoPanel infoPanelScript; // Reference to InfoPanel script component
+//    public GameObject infoButton; // Reference to InfoButton GameObject
 
-    public GameObject infoPanel; // reference to InfoPanel
-    public TMP_Text descriptionText; // reference to DescriptionText inside InfoPanel
-    public TMP_Text descriptionText1;
+//    void Start()
+//    {
+//        if (infoButton != null)
+//            infoButton.SetActive(false); // Hide InfoButton by default
+//    }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+//    void Update()
+//    {
+//        if (Input.GetMouseButtonDown(0))
+//        {
+//            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+//            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.CompareTag("Clickable"))
-                {
-                    string objName = hit.transform.name;
-                    Debug.Log("Clicked on: " + objName);
-                    objectNameText.text = objName;
+//            if (Physics.Raycast(ray, out hit))
+//            {
+//                if (hit.transform.CompareTag("Clickable"))
+//                {
+//                    AssetData assetData = hit.transform.GetComponent<AssetData>();
 
-                    // Optional: Update description text dynamically here
-                    //descriptionText.text = "This is a detailed description for " + objName;
-                }
-            }
-        }
-    }
+//                    if (assetData != null)
+//                    {
+//                        string objName = assetData.assetName;
+//                        string objDescription = assetData.description;
 
-    public void ShowInfo()
-    {
-        infoPanel.SetActive(true);
-    }
+//                        Debug.Log("Clicked on: " + objName);
 
-    public void CloseInfo()
-    {
-        infoPanel.SetActive(false);
-    }
-}
+//                        if (objName == "Chair") // adjust to your exact assetName spelling
+//                        {
+//                            if (infoButton != null)
+//                                infoButton.SetActive(true); // Show InfoButton
+
+//                            if (infoPanelScript != null)
+//                                infoPanelScript.infoPanel.SetActive(false); // Hide InfoPanel initially
+//                        }
+//                        else
+//                        {
+//                            if (infoButton != null)
+//                                infoButton.SetActive(false); // Hide InfoButton
+
+//                            if (infoPanelScript != null)
+//                                infoPanelScript.infoPanel.SetActive(false); // Hide InfoPanel
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

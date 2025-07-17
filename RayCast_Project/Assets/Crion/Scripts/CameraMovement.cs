@@ -3,22 +3,23 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float lookSpeed = 2f;
+    public float mouseSensitivity = 2f;
 
     float yaw = 0f;
     float pitch = 0f;
 
     void Start()
     {
-        // Lock cursor for FPS view
-        Cursor.lockState = CursorLockMode.Locked;
+
+        yaw = transform.eulerAngles.y;
+        pitch = transform.eulerAngles.x;
     }
 
     void Update()
     {
-        // Mouse look
-        float mouseX = Input.GetAxis("Mouse X") * lookSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * lookSpeed;
+       
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
         yaw += mouseX;
         pitch -= mouseY;
@@ -26,17 +27,13 @@ public class CameraMovement : MonoBehaviour
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0f);
 
-        // Movement
+        
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 direction = transform.forward * vertical + transform.right * horizontal;
         transform.position += direction * moveSpeed * Time.deltaTime;
 
-        // Optional: Unlock cursor with Escape
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+       
     }
 }
