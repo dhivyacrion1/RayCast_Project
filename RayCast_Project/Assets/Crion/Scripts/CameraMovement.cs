@@ -10,30 +10,30 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
-
         yaw = transform.eulerAngles.y;
         pitch = transform.eulerAngles.x;
     }
 
     void Update()
     {
-       
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        // Only rotate camera when Right Mouse Button is held down
+        if (Input.GetMouseButton(1))
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        yaw += mouseX;
-        pitch -= mouseY;
-        pitch = Mathf.Clamp(pitch, -90f, 90f);
+            yaw += mouseX;
+            pitch -= mouseY;
+            pitch = Mathf.Clamp(pitch, -90f, 90f);
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0f);
+            transform.eulerAngles = new Vector3(pitch, yaw, 0f);
+        }
 
-        
+        // WASD movement (always active)
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 direction = transform.forward * vertical + transform.right * horizontal;
         transform.position += direction * moveSpeed * Time.deltaTime;
-
-       
     }
 }

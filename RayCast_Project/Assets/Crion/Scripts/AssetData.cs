@@ -4,7 +4,7 @@ public class AssetData : MonoBehaviour
 {
     public string assetName;
 
-    [TextArea(3, 10)] // <-- This makes the description box taller (min 3 lines, max 10 lines)
+    [TextArea(3, 10)] 
     public string description;
 
     public Vector3 panelOffset = new Vector3(0, 2f, 0);

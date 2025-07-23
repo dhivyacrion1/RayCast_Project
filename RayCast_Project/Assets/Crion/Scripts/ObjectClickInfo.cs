@@ -2,7 +2,7 @@
 
 //public class ObjectClickInfo : MonoBehaviour
 //{
-//   
+
 //    public Camera cam;
 //    public InfoPanel infoPanelScript; // Reference to InfoPanel script component
 //    public GameObject infoButton; // Reference to InfoButton GameObject
