@@ -98,7 +98,7 @@ public class EntryExitZone : MonoBehaviour
         if (messagePanel != null)
             messagePanel.SetActive(true);
 
-        PuzzleManager.puzzleSolved = false;
+        PuzzleManager.puzzleSolved = true;
         SceneManager.LoadScene(sceneName);
     }
 
