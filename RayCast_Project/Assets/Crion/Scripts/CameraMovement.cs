@@ -16,7 +16,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        // Only rotate camera when Right Mouse Button is held down
+      
         if (Input.GetMouseButton(1))
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour
             transform.eulerAngles = new Vector3(pitch, yaw, 0f);
         }
 
-        // WASD movement (always active)
+        
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
